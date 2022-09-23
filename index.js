@@ -24,7 +24,7 @@ const managerQs = [
     },
     {
         type: 'input',
-        name: 'school',
+        name: 'officeNumber',
         message: "What is the manager's office number?",
     }
 ];
@@ -48,7 +48,7 @@ const EngineerQs = [
     },
     {
         type: 'input',
-        name: 'school',
+        name: 'github',
         message: "What is the engineer's GitHub username?",
     }
 ];
@@ -81,12 +81,34 @@ const managerQuestions = () => {
     inquirer
         .prompt(managerQs)
         .then((answers) => {
-            answers = ;
+            answers = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
             employees.push(answers);
             return selectEmployee();
         })
-}
+};
 
+const engineerQuestions = () => {
+    inquirer
+        .prompt(managerQs)
+        .then((answers) => {
+            answers = new Manager(answers.name, answers.id, answers.email, answers.github);
+            employees.push(answers);
+            return selectEmployee();
+        })
+};
+
+const internQuestions = () => {
+    inquirer
+        .prompt(managerQs)
+        .then((answers) => {
+            answers = new Manager(answers.name, answers.id, answers.email, answers.school);
+            employees.push(answers);
+            return selectEmployee();
+        })
+};
+
+
+// Gives the user an option to add another type of employee, or finish and generate the html page
 const selectEmployee = () => {
     inquirer.prompt([
         {
@@ -122,7 +144,7 @@ const selectEmployee = () => {
 
 // Function to generate file 
 function generateFile(data) {
-    fs.writeFile(`${path}index.html`, data, (err) => 
-    err ? console.err(err) : 'success!');
+    fs.writeFile(`./dist/index.html`, data, (err) => 
+    err ? console.err(err) : "Your team's profile has been generated!");
 }
    
