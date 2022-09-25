@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+const htmlTemplate = require('./src/main-template');
 const employees = [];
 
 // Manager Questions
@@ -77,6 +78,12 @@ const internQs = [
     }
 ];
 
+// Initiates the prompts, starting with the manager questions
+const init = () => {
+    managerQuestions();
+};
+
+// prompts to create a new manager
 const managerQuestions = () => {
     inquirer
         .prompt(managerQs)
@@ -87,6 +94,7 @@ const managerQuestions = () => {
         })
 };
 
+// prompts to create a new engineer
 const engineerQuestions = () => {
     inquirer
         .prompt(engineerQs)
@@ -97,6 +105,7 @@ const engineerQuestions = () => {
         })
 };
 
+// prompts to create a new intern
 const internQuestions = () => {
     inquirer
         .prompt(internQs)
@@ -104,9 +113,8 @@ const internQuestions = () => {
             answers = new Intern(answers.name, answers.id, answers.email, answers.school);
             employees.push(answers);
             return selectEmployee();
-        })
+        });
 };
-
 
 // Gives the user an option to add another type of employee, or finish and generate the html page
 const selectEmployee = () => {
@@ -131,20 +139,25 @@ const selectEmployee = () => {
             ]
         }
     ])
-    .then( answer => {
+    .then(answer => {
         if (answer.employeeRole === 'addEngineer') {
             engineerQuestions();
-        } else if (answer.employeeRole === 'addIntern') {
+        } 
+        if (answer.employeeRole === 'addIntern') {
             internQuestions();
-        } else if (answer.employeeRole === 'done') {
-            // WRITE FILE!!!
+        } 
+        if (answer.employeeRole === 'done') {
+            let htmldoc = htmlTemplate(employees);
+            generateFile(htmldoc);
         }
-    })
-}
+    });
+;}
 
-// Function to generate file 
+// writes file 
 function generateFile(data) {
     fs.writeFile(`./dist/index.html`, data, (err) => 
     err ? console.err(err) : "Your team's profile has been generated!");
-}
+};
+
+init();
    

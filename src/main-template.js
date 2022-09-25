@@ -63,8 +63,26 @@ const intern = internData => {
 `
 }
 
+// For loop to help organize different team members with correct data onto the same page
+const employeeCards = employees => {
+    let completedHtml = '';
 
-// 
+    for ( i = 0; employees.length; i++ ) {
+        // adds manager html section to page
+        if (employees[i].getRole() === "Manager") {
+            completedHtml = completedHtml + manager(employees[i]);
+        }
+        // adds engineer html section to page
+        if (employees[i].getRole() === "Engineer") {
+            completedHtml = completedHtml + engineer(employees[i]);
+        }
+        // adds intern html section to page
+        if(employees[i].getRole() === "Intern") {
+            completedHtml = completedHtml + intern(employees[i]);
+        }
+    }
+    return completedHtml;
+}
 
 // Main template for HTML document
 const htmlTemplate = data => {
@@ -85,13 +103,10 @@ const htmlTemplate = data => {
 
     <section class="container d-flex justify-content-center align-items-center align-content-center flex-wrap">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-
-
-
+    ${employeeCards(data)}
     </div>
     </section>
        
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
