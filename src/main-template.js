@@ -64,6 +64,8 @@ const intern = internData => {
 }
 
 
+// 
+
 // Main template for HTML document
 const htmlTemplate = data => {
     return `
@@ -95,3 +97,5 @@ const htmlTemplate = data => {
 </html>
 `
 }
+
+module.exports = htmlTemplate;

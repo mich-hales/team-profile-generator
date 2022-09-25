@@ -30,7 +30,7 @@ const managerQs = [
 ];
 
 // Engineer Questions
-const EngineerQs = [
+const engineerQs = [
     {
         type: 'input',
         name: 'name',
@@ -54,7 +54,7 @@ const EngineerQs = [
 ];
 
 // Intern Questions
-const InternQs = [
+const internQs = [
     {
         type: 'input',
         name: 'name',
@@ -89,9 +89,9 @@ const managerQuestions = () => {
 
 const engineerQuestions = () => {
     inquirer
-        .prompt(managerQs)
+        .prompt(engineerQs)
         .then((answers) => {
-            answers = new Manager(answers.name, answers.id, answers.email, answers.github);
+            answers = new Engineer(answers.name, answers.id, answers.email, answers.github);
             employees.push(answers);
             return selectEmployee();
         })
@@ -99,9 +99,9 @@ const engineerQuestions = () => {
 
 const internQuestions = () => {
     inquirer
-        .prompt(managerQs)
+        .prompt(internQs)
         .then((answers) => {
-            answers = new Manager(answers.name, answers.id, answers.email, answers.school);
+            answers = new Intern(answers.name, answers.id, answers.email, answers.school);
             employees.push(answers);
             return selectEmployee();
         })
