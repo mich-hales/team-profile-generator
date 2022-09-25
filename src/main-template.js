@@ -65,19 +65,20 @@ const intern = internData => {
 
 // For loop to help organize different team members with correct data onto the same page
 const employeeCards = employees => {
+    console.log(employees)
     let completedHtml = '';
 
     for ( i = 0; employees.length; i++ ) {
         // adds manager html section to page
-        if (employees[i].getRole() === "Manager") {
+        if (employees[i].getRole() === 'Manager') {
             completedHtml = completedHtml + manager(employees[i]);
         }
         // adds engineer html section to page
-        if (employees[i].getRole() === "Engineer") {
+        if (employees[i].getRole() === 'Engineer') {
             completedHtml = completedHtml + engineer(employees[i]);
         }
         // adds intern html section to page
-        if(employees[i].getRole() === "Intern") {
+        if(employees[i].getRole() === 'Intern') {
             completedHtml = completedHtml + intern(employees[i]);
         }
     }
