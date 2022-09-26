@@ -87,9 +87,9 @@ const init = () => {
 const managerQuestions = () => {
     inquirer
         .prompt(managerQs)
-        .then((answers) => {
-            answers = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-            employees.push(answers);
+        .then(answers => {
+            const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+            employees.push(manager);
             return selectEmployee();
         })
 };
@@ -98,9 +98,9 @@ const managerQuestions = () => {
 const engineerQuestions = () => {
     inquirer
         .prompt(engineerQs)
-        .then((answers) => {
-            answers = new Engineer(answers.name, answers.id, answers.email, answers.github);
-            employees.push(answers);
+        .then(answers => {
+            const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+            employees.push(engineer);
             return selectEmployee();
         })
 };
@@ -109,9 +109,9 @@ const engineerQuestions = () => {
 const internQuestions = () => {
     inquirer
         .prompt(internQs)
-        .then((answers) => {
-            answers = new Intern(answers.name, answers.id, answers.email, answers.school);
-            employees.push(answers);
+        .then(answers => {
+            const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+            employees.push(intern);
             return selectEmployee();
         });
 };

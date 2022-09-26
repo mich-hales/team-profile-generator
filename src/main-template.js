@@ -10,7 +10,7 @@ const manager = managerData => {
         <div class="card-body">
         <ul class="list-group">
             <li class="list-group-item">ID: ${managerData.getId()}</li>
-            Email: <a href="mailto:${managerData.getEmail()}">${managerData.getEmail()}</a></li>
+            <li class="list-group-item">Email: <a href="mailto:${managerData.getEmail()}">${managerData.getEmail()}</a></li>
             <li class="list-group-item">Office Number: ${managerData.getOfficeNumber()}</li>
         </ul>
         </div>
@@ -68,7 +68,7 @@ const employeeCards = employees => {
     console.log(employees)
     let completedHtml = '';
 
-    for ( i = 0; employees.length; i++ ) {
+    for ( i = 0; i < employees.length; i++ ) {
         // adds manager html section to page
         if (employees[i].getRole() === 'Manager') {
             completedHtml = completedHtml + manager(employees[i]);
