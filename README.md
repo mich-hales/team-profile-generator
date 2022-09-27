@@ -23,7 +23,7 @@ node index.js
 * [Node.js](https://nodejs.org/en/)
 
 ## Walkthrough Video
-
+https://user-images.githubusercontent.com/107455470/192404670-8bea9347-cef6-4496-92e9-c1eb524f53d3.mp4
 
 ## Mock-Up
 
