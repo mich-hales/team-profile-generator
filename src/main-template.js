@@ -1,7 +1,7 @@
 // Manager template for HTML document
 const manager = managerData => {
     return `
-    <div class="col">
+    <div class="col-12">
     <div class="card">
         <div class="card-header bg-primary bg-gradient text-light">
             <h5 class="card-title">${managerData.getName()}</h5>
@@ -22,7 +22,7 @@ const manager = managerData => {
 // Engineer template for HTML document
 const engineer = engineerData => {
     return `
-    <div class="col">
+    <div class="col-12">
     <div class="card">
         <div class="card-header bg-primary bg-gradient text-light ">
             <h5 class="card-title">${engineerData.getName()}</h5>
@@ -45,7 +45,7 @@ const engineer = engineerData => {
 // Intern template for HTML document
 const intern = internData => {
     return `
-    <div class="col">
+    <div class="col-12">
     <div class="card">
         <div class="card-header bg-primary bg-gradient text-light">
             <h5 class="card-title">${internData.getName()}</h5>
@@ -102,7 +102,7 @@ const htmlTemplate = data => {
         <h1>My Team</h1>
     </header>
 
-    <section class="container d-flex justify-content-center align-items-center align-content-center flex-wrap">
+    <section class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
     ${employeeCards(data)}
     </div>
