@@ -32,15 +32,3 @@ The following image shows a mock-up of the generated HTML’s appearance and fun
 ![HTML webpage titled “My Team” features three boxes listing employee names, titles, and other key information.](./Assets/screenshot.html.png)
 
 GitHub Repository: https://github.com/mich-hales/team-profile-generator 
-
-
-## Review
-
-You are required to submit the following for review:
-
-* A walkthrough video that demonstrates the functionality of the application and passing tests.
-
-* A sample HTML file generated using your application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
